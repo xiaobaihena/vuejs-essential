@@ -3,7 +3,7 @@
     <div class="blog-pages">
       <div class="col-md-12 panel">
         <div class="panel-body">
-          <h2 class="text-center">创作文章</h2>
+          <h2 class="text-center">{{ articleId ? '编辑文章' : '创作文章' }}</h2>
           <hr>
           <div data-validator-form>
             <div class="form-group">

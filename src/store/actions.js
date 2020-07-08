@@ -26,9 +26,11 @@ export const post = ({ commit, state }, { article, articleId }) => {
         content,
         date
       })
-    } else {// 如果有传 articleId
-      // 遍历所有文章
+    } else {
+      // article 传参时
+  // 遍历所有文章
       for (let article of articles) {
+        // 找到与 articleId 对应的文章
         if (parseInt(article.articleId) === parseInt(articleId)) {
           article.title = title
           article.content = content
@@ -39,5 +41,15 @@ export const post = ({ commit, state }, { article, articleId }) => {
 
     commit('UPDATE_ARTICLES', articles)
     router.push({ name: 'Content', params: { articleId, showMsg: true } })
+  } else {
+    for (let article of articles) {
+      if (parseInt(article.articleId) === parseInt(articleId)) {
+        articles.splice(articles.indexOf(article), 1)
+        break
+      }
+    }
+
+    commit('UPDATE_ARTICLES', articles)
+    router.push({ name: 'Home', params: { showMsg: true } })
   }
 }
