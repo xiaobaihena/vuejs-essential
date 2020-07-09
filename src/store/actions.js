@@ -109,6 +109,14 @@ export const comment = ({ commit, state }, { articleId, comment, commentId }) =>
             comments.splice(comments.indexOf(comment), 1)
             break
           }
+
+          // 在评论列表中加入当前评论
+          comments.push({
+            uid,
+            commentId,
+            content,
+            date
+          })
         }
       }
 
