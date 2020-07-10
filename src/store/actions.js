@@ -95,13 +95,14 @@ export const comment = ({ commit, state }, { articleId, comment, commentId }) =>
           for (let comment of comments) {
             // 找到对应的评论时
             if (parseInt(comment.commentId) === parseInt(commentId)) {
-               // 删除这条评论
+               // 更新评论的内容
                comment.content = content
               break
             }
           }
         }
-      }else { // 不存在评论内容时
+      }
+      else { // 不存在评论内容时
         for (let comment of comments) {
           // 找到对应的评论时
           if (parseInt(comment.commentId) === parseInt(commentId)) {
@@ -109,14 +110,6 @@ export const comment = ({ commit, state }, { articleId, comment, commentId }) =>
             comments.splice(comments.indexOf(comment), 1)
             break
           }
-
-          // 在评论列表中加入当前评论
-          comments.push({
-            uid,
-            commentId,
-            content,
-            date
-          })
         }
       }
 

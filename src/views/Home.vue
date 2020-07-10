@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
   data() {
@@ -45,10 +46,11 @@ export default {
     })
   },
   computed: {
-      // 用户登录状态
-    auth() {
-      return this.$store.state.auth
-    }
+    ...mapState([
+      'auth',
+      'user',
+      'articles'
+    ])
   },
   watch: {
       // 监听 auth，它的值变为 false 时，显示操作成功提示
