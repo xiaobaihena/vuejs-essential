@@ -15,7 +15,7 @@
     </div>
 
     <div class="carousel-indicators">
-      <li v-for="n in slides.length" :class="{ active: n - 1 === currentIndex }" @click="playTo(n - 1)"></li>
+      <li v-for="n in slides.length" :class="{ active: n - 1 === currentIndex }" @click="playTo(n - 1)" v-bind:key="n.nId"></li>
     </div>
   </div>
 </template>
