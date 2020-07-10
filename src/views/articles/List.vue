@@ -28,29 +28,27 @@
 </template>
 
 <script>
-// 引入 mapState 辅助函数
 import { mapState } from 'vuex'
 
 export default {
   name: 'List',
-   data() {
+  data() {
     return {
       articles: [] // 对应用户文章
     }
   },
   computed: {
-    // 将指定的状态混入计算属性
     ...mapState([
       'auth',
-      'user',
+      'user'
     ])
   },
-   beforeRouteEnter(to, from, next) {
+  beforeRouteEnter(to, from, next) {
     next(vm => {
       // 确认渲染该组件的对应路由时，获取对应用户文章
       vm.articles = vm.$store.getters.getArticlesByUid(null, to.params.user)
     })
-   }
+  }
 }
 </script>
 
