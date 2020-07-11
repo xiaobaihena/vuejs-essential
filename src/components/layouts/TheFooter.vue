@@ -6,7 +6,8 @@
           <p class="padding-top-xsm">{{ description }}</p>
 
           <div class="text-md">
-            <a v-for="item in contacts" v-title="item.title" :href="item.link" :style="contactStyle" target="_blank" :key="item.title">
+            <a v-for="item in contacts" v-title="item.title" :href="item.link" 
+            :style="contactStyle" target="_blank" :key="item.title">
               <i :class="`fa fa-${item.icon}`"></i>
             </a>
           </div>
@@ -80,7 +81,7 @@ export default {
         {
           icon: 'weixin',
           title: '加我微信',
-          link: 'https://learnku.com/vuejs/contact'
+          link: 'https://learnku.com /vuejs/contact'
         }
       ],
       contactStyle: {
